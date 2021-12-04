@@ -1,0 +1,35 @@
+{
+  "name": "@pallad/compare",
+  "version": "1.0.0",
+  "description": "",
+  "main": "compiled/index.js",
+  "types": "compiled/index.d.ts",
+  "scripts": {
+    "test": "pallad-scripts test",
+    "lint": "pallad-scripts lint",
+    "compile": "pallad-scripts compile",
+    "prepack": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pallad-ts/compare.git"
+  },
+  "files": [
+    "compiled"
+  ],
+  "author": "Łukasz Kużyński <lukasz.kuzynski@gmail.com> (http://wookieb.pl)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pallad-ts/compare/issues"
+  },
+  "homepage": "https://github.com/pallad-ts/compare#readme",
+  "devDependencies": {
+    "@pallad/scripts": "^2",
+    "conditional-type-checks": "^1.0.5",
+    "sinon": "^9",
+    "@types/sinon": "^9"
+  },
+  "dependencies": {
+    "predicates": "^2.0.3"
+  }
+}
