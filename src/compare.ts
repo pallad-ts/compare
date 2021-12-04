@@ -1,10 +1,10 @@
-import {ComparisonResult} from './ComparisonResult';
+import {Result} from './Result';
 import {Comparable} from './Comparable';
 import {Equal} from './Equal';
 import {Less} from './Less';
 import {Greater} from './Greater';
 
-export function compare<T = unknown>(a: T, b: T): ComparisonResult {
+export function compare<T = unknown>(a: T, b: T): Result {
 	if (Comparable.is(a) && Comparable.is(b)) {
 		return a.compare(b);
 	}

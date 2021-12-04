@@ -1,4 +1,4 @@
-import {Mapping} from './Mapping';
+import {createMap} from './factory/createMap';
 
 export const Less = Object.freeze({
 	type: 'less',
@@ -8,10 +8,11 @@ export const Less = Object.freeze({
 	isLessOrEqual: true,
 	isGreaterOrEqual: false,
 	isGreater: false,
-	map<T1, T2, T3>(mapping: Mapping<T1, T2, T3>): T1 | T2 | T3 {
-		return mapping.less;
-	},
-	sortResult: -1 as const,
+	map: createMap(less => {
+		return less;
+	}),
+	sortResult: -1,
+	sortResultReversed: 1,
 	valueOf() {
 		return -1 as const;
 	}
