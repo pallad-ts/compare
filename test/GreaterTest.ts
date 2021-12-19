@@ -1,6 +1,8 @@
 import {assert, IsExact} from 'conditional-type-checks';
 import {Greater} from '@src/Greater';
 import {Mapping} from '@src/Mapping';
+import {Result} from '@src/Result';
+import {Less} from '@src/Less';
 
 describe('Greater', () => {
 	it('type', () => {
@@ -14,6 +16,7 @@ describe('Greater', () => {
 			isGreaterOrEqual: true,
 			sortResult: 1,
 			sortResultReversed: -1,
+			reverse: Result,
 			map: <T1, T2, T3>(mapping: Mapping<T1, T2, T3>) => T1 | T2 | T3,
 			valueOf(): 1,
 		}, typeof Greater>>(true)
@@ -21,6 +24,10 @@ describe('Greater', () => {
 
 	it('valueOf', () => {
 		expect(+Greater).toEqual(1);
+	});
+
+	it('reversed', () => {
+		expect(Greater.reverse).toEqual(Less);
 	});
 
 	describe('map', () => {

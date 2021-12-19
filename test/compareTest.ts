@@ -23,4 +23,15 @@ describe('compare', () => {
 		expect(compare(2, 1))
 			.toStrictEqual(Greater);
 	});
+
+	it('comparing non comparables fallbacks to default comparison operators', () => {
+		expect(compare.reverse(1, 1))
+			.toStrictEqual(Equal);
+
+		expect(compare.reverse(1, 2))
+			.toStrictEqual(Greater);
+
+		expect(compare.reverse(2, 1))
+			.toStrictEqual(Less);
+	});
 });

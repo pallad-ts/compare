@@ -17,3 +17,7 @@ export function compare<T = unknown>(a: T, b: T): Result {
 	}
 	return Greater;
 }
+
+compare.reverse = function <T>(a: T, b: T): Result {
+	return compare(a, b).reverse;
+}

@@ -1,4 +1,6 @@
 import {createMap} from './factory/createMap';
+import {Less} from './Less';
+import {Result} from './Result';
 
 export const Greater = Object.freeze({
 	type: 'greater',
@@ -11,6 +13,9 @@ export const Greater = Object.freeze({
 	map: createMap((less, equal, greater) => {
 		return greater;
 	}),
+	get reverse(): Result {
+		return Less;
+	},
 	sortResult: 1,
 	sortResultReversed: -1,
 	valueOf() {
