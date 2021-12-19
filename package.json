@@ -1,7 +1,7 @@
 {
   "name": "@pallad/compare",
-  "version": "1.1.0",
-  "description": "",
+  "version": "1.1.1",
+  "description": "Custom sorting inspired by Rust",
   "main": "compiled/index.js",
   "types": "compiled/index.d.ts",
   "scripts": {
@@ -31,5 +31,8 @@
   },
   "dependencies": {
     "predicates": "^2.0.3"
-  }
+  },
+  "keywords": [
+    "comparable", "sorting", "custom sorting", "value object", "comparison"
+  ]
 }
