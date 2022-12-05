@@ -19,5 +19,28 @@ describe('Result', () => {
 			.toEqual(Greater);
 		expect(Result.fromSortResult(Infinity))
 			.toEqual(Greater);
-	})
+	});
+
+	describe('isType', () => {
+		it.each([
+			[Less],
+			[Greater],
+			[Equal],
+		])('valid: %#', value => {
+			expect(Result.is(value))
+				.toBe(true);
+		});
+
+		it.each([
+			[-1],
+			[1],
+			[0],
+			[{}],
+			[true],
+			[false],
+		])('invalid: %#', value => {
+			expect(Result.is(value))
+				.toBe(false);
+		});
+	});
 });

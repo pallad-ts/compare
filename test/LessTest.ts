@@ -1,27 +1,8 @@
 import {assert, IsExact} from 'conditional-type-checks';
 import {Less} from '@src/Less';
-import {Mapping} from '@src/Mapping';
-import {Result} from '@src/Result';
 import {Greater} from '@src/Greater';
 
 describe('Less', () => {
-	it('type', () => {
-		assert<IsExact<{
-			type: 'less',
-			isLess: true,
-			isLessOrEqual: true,
-			isNotEqual: true,
-			isEqual: false,
-			isGreater: false,
-			isGreaterOrEqual: false,
-			sortResult: -1,
-			sortResultReversed: 1,
-			reverse: Result,
-			map: <T1, T2, T3>(mapping: Mapping<T1, T2, T3>) => T1 | T2 | T3,
-			valueOf(): -1,
-		}, typeof Less>>(true)
-	});
-
 	it('valueOf', () => {
 		expect(+Less).toEqual(-1);
 	});

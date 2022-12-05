@@ -40,14 +40,54 @@ compare(1, 2).isEqual // false
 
 ## Sorting
 
-`compare` first tries to leverage `compare` defined by `Comparable` interface if that is possible. 
-Otherwise fallbacks to regular operators (`<`, `==`, `>`) comparison.
+`compare` first tries to leverage `compare` defined by `Comparable` interface if that is possible.
+Otherwise fallbacks to regular operators (`<`, `==`, `>`) comparison .
 
 ```typescript
 import {compare} from '@pallad/compare';
 
 [5, 1, 10].sort(compare); // [1, 5, 10]
 [5, 1, 10].sort(compare.reverse); // [10, 5, 1]
+```
+
+## Defining custom sorting for any values
+
+You can define your own custom comparator that is used even if values are `Comparable` values.
+
+```typescript
+import {compare} from '@pallad/compare';
+
+interface Option {
+	type: string;
+	value: string;
+}
+
+function comparator(a: Option, b: Option) {
+	return a.type.localeCompare(b.type);
+}
+
+
+const aValue: Option = {
+	type: '2',
+	value: 'Option 2'
+};
+
+const bValue: Option = {
+	type: '1',
+	value: 'Option 1'
+};
+compare(aValue, bValue, comparator).isGreater // true
+compare.reverse(aValue, bValue, comparator).isGreater // false
+```
+
+You do not need to pass comparator all the time, just create own compare function.
+
+```typescript
+import {createCompareWithComparator} from '@pallad/compare';
+
+const customCompare = createCompareWithComparator(comparator);
+customCompare(aValue, bValue).isGreater // true
+customCompare.reverse(aValue, bValue).isGreater // false
 ```
 
 ## Defining custom sorting for value objects
@@ -96,7 +136,7 @@ The result could be:
 Each of them implements following shape:
 
 ```typescript
-interface Api {
+interface Result {
 	type: 'equal' | 'less' | 'greater',
 	/**
 	 * Indicates that value is lower
@@ -171,6 +211,7 @@ type R2 = typeof r2; // 'less' | 'equal' | 'greater'
 ```
 
 ## Mapping to boolean
+
 Before your try to map to booleans, think if currently available helpers are not good enough
 
 ```typescript

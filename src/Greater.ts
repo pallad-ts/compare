@@ -1,6 +1,6 @@
 import {createMap} from './factory/createMap';
 import {Less} from './Less';
-import {Result} from './Result';
+import {Result} from "./Result";
 
 export const Greater = Object.freeze({
 	type: 'greater',
@@ -21,4 +21,4 @@ export const Greater = Object.freeze({
 	valueOf() {
 		return 1 as const;
 	}
-} as const);
+}) as Result;

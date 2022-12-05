@@ -1,9 +1,9 @@
-import * as is from 'predicates';
 import {Result} from './Result';
 
-const isComparable = is.struct({
-	compare: Function
-});
+function isComparable<T>(value: unknown): value is Comparable<T> {
+	// eslint-disable-next-line no-null/no-null
+	return typeof value === 'object' && value !== null && (value as any).compare instanceof Function;
+}
 
 export interface Comparable<T> {
 	compare(another: T): Result;

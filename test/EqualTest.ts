@@ -1,26 +1,7 @@
 import {assert, IsExact} from 'conditional-type-checks';
 import {Equal} from '@src/Equal';
-import {Mapping} from '@src/Mapping';
-import {Result} from '@src/Result';
 
 describe('Equal', () => {
-	it('type', () => {
-		assert<IsExact<{
-			type: 'equal',
-			isLess: false,
-			isLessOrEqual: true,
-			isNotEqual: false,
-			isEqual: true,
-			isGreater: false,
-			isGreaterOrEqual: true,
-			sortResult: 0,
-			sortResultReversed: 0,
-			reverse: Result,
-			map: <T1, T2, T3>(mapping: Mapping<T1, T2, T3>) => T1 | T2 | T3,
-			valueOf(): 0,
-		}, typeof Equal>>(true)
-	});
-
 	it('valueOf', () => {
 		expect(+Equal).toEqual(0);
 	});

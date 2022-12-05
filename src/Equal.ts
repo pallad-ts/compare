@@ -1,5 +1,5 @@
 import {createMap} from './factory/createMap';
-import {Result} from './Result';
+import {Result} from "./Result";
 
 export const Equal = Object.freeze({
 	type: 'equal',
@@ -20,4 +20,4 @@ export const Equal = Object.freeze({
 	valueOf() {
 		return 0 as const;
 	}
-} as const);
+}) as Result;
